@@ -1,7 +1,7 @@
 import xbmcaddon
 
 '''#####-----Build File-----#####'''
-buildfile = 'https://team-enigma.xyz/builds/enigma.zip?dl=1'
+buildfile = 'https://github.com/JxrJxrBlinkz/jxrjxrblinkz.github.io/blob/master/repo/plugin.program.enigmawiz/resources/texts/builds.xml'
 
 '''#####-----Notifications File-----#####'''
 notify_url  = 'http://'
