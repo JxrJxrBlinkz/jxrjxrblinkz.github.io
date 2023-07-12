@@ -1,9 +1,9 @@
 <builds>
 
   <build>
-	<name></name>
-	<version></version>
-	<url></url>
+	<name>Enigma</name>
+	<version>1.0.1</version>
+	<url>https://team-enigma.xyz/builds/enigma.zip</url>
 	<icon></icon>
 	<fanart></fanart>
 	<description></description>

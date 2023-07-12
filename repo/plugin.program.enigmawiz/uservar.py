@@ -1,10 +1,10 @@
 import xbmcaddon
 
 '''#####-----Build File-----#####'''
-buildfile = 'https://github.com/JxrJxrBlinkz/jxrjxrblinkz.github.io/blob/master/repo/plugin.program.enigmawiz/resources/texts/builds.json'
+buildfile = 'http://team-enigma.xyz/builds.xml'
 
 '''#####-----Notifications File-----#####'''
-notify_url  = 'https://github.com/JxrJxrBlinkz/jxrjxrblinkz.github.io/blob/master/repo/plugin.program.enigmawiz/resources/texts/notify.txt'
+notify_url  = 'http://'
 
 '''#####-----Excludes-----#####'''
 excludes  = ['plugin.video.whatever']
