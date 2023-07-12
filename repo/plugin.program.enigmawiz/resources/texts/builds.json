@@ -1,12 +1,12 @@
 {
 	"builds": [
 		{
-			"name": "Build 1",
+			"name": "Enigma",
 			"version": "1.0",
-			"url": "http://",
+			"url": "https://team-enigma.xyz/builds/enigma.zip?dl=1",
 			"icon": "http://",
 			"fanart": "http://",
-			"description": "The first build. You need a comma after the curly bracket if this is not the last build."
+			"description": "Updated 12/07/2023"
 		},
 		{
 			"name": "Build 2",
