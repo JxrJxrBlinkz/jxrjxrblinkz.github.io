@@ -1,10 +1,10 @@
 import xbmcaddon
 
 '''#####-----Build File-----#####'''
-buildfile = 'http://team-enigma.xyz/builds.txt'
+buildfile = 'https://github.com/JxrJxrBlinkz/jxrjxrblinkz.github.io/blob/master/builds.txt'
 
 '''#####-----Notifications File-----#####'''
-notify_url  = 'http://team-enigma.xyz/notify.txt'
+notify_url  = 'https://github.com/JxrJxrBlinkz/jxrjxrblinkz.github.io/blob/master/notify.txt'
 
 '''#####-----Excludes-----#####'''
 excludes  = ['plugin.video.whatever']
