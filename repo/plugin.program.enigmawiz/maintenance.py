@@ -5,6 +5,8 @@ import xbmc
 import xbmcaddon
 import xbmcgui
 from .skinSwitch import swapSkins
+from .save_data import save_backup_restore
+from .utils import log
 from .addonvar import currSkin, user_path, db_path, addon_name, textures_db, advancedsettings_folder, advancedsettings_xml, dialog, dp, xbmcPath, packages, setting_set, addon_icon, local_string, addons_db
 from .whitelist import EXCLUDES_INSTALL, EXCLUDES_FRESH
 
@@ -74,9 +76,12 @@ def advanced_settings():
 
 def fresh_start(standalone=False):
     if standalone:
+        exceptions = EXCLUDES_FRESH
         yesFresh = dialog.yesno(local_string(30012), local_string(30042), nolabel=local_string(30032), yeslabel=local_string(30012))  # Are you sure?
         if not yesFresh:
             quit()
+    else:
+        exceptions = EXCLUDES_INSTALL
     if not currSkin() in ['skin.estuary']:
         swapSkins('skin.estuary')
         x = 0
@@ -98,45 +103,24 @@ def fresh_start(standalone=False):
     xbmc.sleep(100)
     dp.update(30, local_string(30043))
     xbmc.sleep(100)
-    if standalone:
-        for root, dirs, files in os.walk(xbmcPath, topdown=True):
-            dirs[:] = [d for d in dirs if d not in EXCLUDES_FRESH]
-            for name in files:
-                if name not in EXCLUDES_FRESH:
-                    try:
-                        os.remove(os.path.join(root, name))
-                    except:
-                        xbmc.log('Unable to delete ' + name, xbmc.LOGINFO)
-        dp.update(60, local_string(30043))
-        xbmc.sleep(100)    
-        for root, dirs, files in os.walk(xbmcPath,topdown=True):
-            dirs[:] = [d for d in dirs if d not in EXCLUDES_FRESH]
-            for name in dirs:
-                if name not in ['addons', 'userdata', 'Database', 'addon_data', 'backups', 'temp']:
-                    try:
-                        shutil.rmtree(os.path.join(root,name),ignore_errors=True, onerror=None)
-                    except:
-                        xbmc.log('Unable to delete ' + name, xbmc.LOGINFO)
-
-    if not standalone:                
-        for root, dirs, files in os.walk(xbmcPath, topdown=True):
-            dirs[:] = [d for d in dirs if d not in EXCLUDES_INSTALL]
-            for name in files:
-                if name not in EXCLUDES_INSTALL:
-                    try:
-                        os.remove(os.path.join(root, name))
-                    except:
-                        xbmc.log('Unable to delete ' + name, xbmc.LOGINFO)
-        dp.update(60, local_string(30043))
-        xbmc.sleep(100)    
-        for root, dirs, files in os.walk(xbmcPath,topdown=True):
-            dirs[:] = [d for d in dirs if d not in EXCLUDES_INSTALL]
-            for name in dirs:
-                if name not in ['addons', 'userdata', 'Database', 'addon_data', 'backups', 'temp']:
-                    try:
-                        shutil.rmtree(os.path.join(root,name),ignore_errors=True, onerror=None)
-                    except:
-                        xbmc.log('Unable to delete ' + name, xbmc.LOGINFO)
+    for root, dirs, files in os.walk(xbmcPath, topdown=True):
+        dirs[:] = [d for d in dirs if d not in exceptions]
+        for name in files:
+            if name not in exceptions:
+                try:
+                    os.remove(os.path.join(root, name))
+                except:
+                    xbmc.log('Unable to delete ' + name, xbmc.LOGINFO)
+    dp.update(60, local_string(30043))
+    xbmc.sleep(100)    
+    for root, dirs, files in os.walk(xbmcPath,topdown=True):
+        dirs[:] = [d for d in dirs if d not in exceptions]
+        for name in dirs:
+            if name not in ['addons', 'userdata', 'Database', 'addon_data', 'backups', 'temp']:
+                try:
+                    shutil.rmtree(os.path.join(root,name),ignore_errors=True, onerror=None)
+                except:
+                    xbmc.log('Unable to delete ' + name, xbmc.LOGINFO)
     dp.update(60, local_string(30043))
     xbmc.sleep(100)
     if not os.path.exists(packages):

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="plugin.program.enigmawiz" name="Enigma" version="1.0.0" provider-name="JxrJxrBlinkz">
+<addon id="plugin.program.enigmawiz" name="Enigma" version="3.0.3" provider-name="JxrJxrBlinkz">
 	<requires>
 		<import addon="xbmc.python" version="3.0.0"/>
 		<import addon="script.module.requests" optional="true" />
