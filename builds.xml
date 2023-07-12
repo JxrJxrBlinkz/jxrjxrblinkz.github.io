@@ -1,11 +1,12 @@
-{
-  "builds": [
-    {
-      "name": "Enigma Lite",
-      "version": "1.0",
-      "url": "
-https://team-enigma.xyz/builds/enigma.zip?dl=0
-  "icon": "https://i.imgur.com/4F1aJCK.png",
-      "fanart": "https://i.imgur.com/4F1aJCK.png",
-      "description": ""
- },
+<builds>
+
+  <build>
+	<name>Enigma</name>
+	<version>1.0.1</version>
+	<url>https://team-enigma.xyz/builds/enigma.zip?dl=1</url>
+	<icon></icon>
+	<fanart></fanart>
+	<description></description>
+  </build>
+  
+</builds>
